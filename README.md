@@ -1,8 +1,7 @@
 # Wynn.jl
 A package to facilitate the calculation of epsilon (<img src="/tex/7ccca27b5ccc533a2dd72dc6fa28ed84.svg?invert_in_darkmode&sanitize=true" align=middle width=6.672392099999992pt height=14.15524440000002pt/>) table structures, derived from Wynn's recursive epsilon algorithm.
 
-Suppose we are presented with a series, <img src="/tex/e257acd1ccbe7fcb654708f1a866bfe9.svg?invert_in_darkmode&sanitize=true" align=middle width=11.027402099999989pt height=22.465723500000017pt/>, with partial sums <img src="/tex/d28140eda2d12e24b434e011b930fa23.svg?invert_in_darkmode&sanitize=true" align=middle width=14.730823799999989pt height=22.465723500000017pt/>,
-![equation](https://latex.codecogs.com/gif.latex?<img src="/tex/e94349dcc4a33d48f36845dd07c89823.svg?invert_in_darkmode&sanitize=true" align=middle width=264.18512174999995pt height=56.32434059999998pt/>).
+Suppose we are presented with a series, <img src="/tex/e257acd1ccbe7fcb654708f1a866bfe9.svg?invert_in_darkmode&sanitize=true" align=middle width=11.027402099999989pt height=22.465723500000017pt/>, with partial sums <img src="/tex/d28140eda2d12e24b434e011b930fa23.svg?invert_in_darkmode&sanitize=true" align=middle width=14.730823799999989pt height=22.465723500000017pt/>, <img src="/tex/305b00052b0f637b1f6b9cbbc20b6bd4.svg?invert_in_darkmode&sanitize=true" align=middle width=81.79511999999998pt height=56.32434059999998pt/>.
 
 Wynn's epsilon algorithm computes the following recursive scheme:
 <img src="/tex/b4e0ec3b26fc563e0ed93910d7e0c216.svg?invert_in_darkmode&sanitize=true" align=middle width=298.57868204999994pt height=43.42856099999997pt/>,

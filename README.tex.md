@@ -13,7 +13,7 @@ where
 
 $\epsilon_{0}(S_i) = S_i$, for $i=0,1,2,\ldots$
 
-\epsilon_{-1}(S_i) = 0$, for $i=0,1,2,\ldots$
+$\epsilon_{-1}(S_i) = 0$, for $i=0,1,2,\ldots$
 
 $\epsilon_{-j-1}(S_{2j}) = 0$, for $j=0,1,2,\ldots$
 

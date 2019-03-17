@@ -1,7 +1,7 @@
 # Wynn.jl
 A package to facilitate the calculation of epsilon ($\epsilon$) table structures, derived from Wynn's recursive epsilon algorithm.
 
-Suppose we are presented with a series, $S$, with partial sums $S_i$, 
+Suppose we are presented with a series, $S$, with partial sums $S_i$,
 
 $\displaystyle S_i = \sum_{n=0}^i a_n$.
 
@@ -47,12 +47,12 @@ which yields
 
 $\displaystyle R[2/2](x) = \frac{x^2 + 6x + 12}{x^2 -6x + 12}$
 
-Comparing accuracy, for $x = 0.314159$:
+Comparing accuracy, for $x = 1$:
 
-$exp(0.314159) = 1.3691074073198546$ (Native Julia function)
+$exp(1) = 2.718281828459045$ (Native Julia function)
 
-$S(0.314159) = 1.36908050816696$ (First 5 terms of Taylor series)
+$S(1) = 2.7083333333333335$ (First 5 terms of Taylor series)
 
-$R(0.314159) = 1.36910155409210$ (Pade R[2/2] approximation)
+$R(1) = 2.7142857142857144$ (Pade R[2/2] approximation)
 
 It can be seen that as x moves away from 0, the Pade approximant is more accurate than the corresponding Taylor series.

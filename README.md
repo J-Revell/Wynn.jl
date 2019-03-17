@@ -1,7 +1,7 @@
 # Wynn.jl
 A package to facilitate the calculation of epsilon (<img src="/tex/7ccca27b5ccc533a2dd72dc6fa28ed84.svg?invert_in_darkmode&sanitize=true" align=middle width=6.672392099999992pt height=14.15524440000002pt/>) table structures, derived from Wynn's recursive epsilon algorithm.
 
-Suppose we are presented with a series, <img src="/tex/e257acd1ccbe7fcb654708f1a866bfe9.svg?invert_in_darkmode&sanitize=true" align=middle width=11.027402099999989pt height=22.465723500000017pt/>, with partial sums <img src="/tex/d28140eda2d12e24b434e011b930fa23.svg?invert_in_darkmode&sanitize=true" align=middle width=14.730823799999989pt height=22.465723500000017pt/>, 
+Suppose we are presented with a series, <img src="/tex/e257acd1ccbe7fcb654708f1a866bfe9.svg?invert_in_darkmode&sanitize=true" align=middle width=11.027402099999989pt height=22.465723500000017pt/>, with partial sums <img src="/tex/d28140eda2d12e24b434e011b930fa23.svg?invert_in_darkmode&sanitize=true" align=middle width=14.730823799999989pt height=22.465723500000017pt/>,
 
 <img src="/tex/305b00052b0f637b1f6b9cbbc20b6bd4.svg?invert_in_darkmode&sanitize=true" align=middle width=81.79511999999998pt height=56.32434059999998pt/>.
 
@@ -47,12 +47,12 @@ which yields
 
 <img src="/tex/ed18bf83d30c6c5a437c246a3a87a143.svg?invert_in_darkmode&sanitize=true" align=middle width=183.47364255pt height=49.00309590000003pt/>
 
-Comparing accuracy, for <img src="/tex/08860a680b937b36c1e93e76e02a12a5.svg?invert_in_darkmode&sanitize=true" align=middle width=93.41330789999998pt height=21.18721440000001pt/>:
+Comparing accuracy, for <img src="/tex/8614628c35cbd72f9732b246c2e4d7b8.svg?invert_in_darkmode&sanitize=true" align=middle width=39.53182859999999pt height=21.18721440000001pt/>:
 
-<img src="/tex/d2fbc056b13622350cd02c9958eac4e3.svg?invert_in_darkmode&sanitize=true" align=middle width=266.4162303pt height=24.65753399999998pt/> (Native Julia function)
+<img src="/tex/abe7189da355fdabefc6dab63712e46e.svg?invert_in_darkmode&sanitize=true" align=middle width=204.31554165pt height=24.65753399999998pt/> (Native Julia function)
 
-<img src="/tex/ffbe5255c402d4032989ea578e77b551.svg?invert_in_darkmode&sanitize=true" align=middle width=235.68550169999997pt height=24.65753399999998pt/> (First 5 terms of Taylor series)
+<img src="/tex/c71bb1b2d0f1cd5b50c54ae84b62ea49.svg?invert_in_darkmode&sanitize=true" align=middle width=198.24244109999998pt height=24.65753399999998pt/> (First 5 terms of Taylor series)
 
-<img src="/tex/23126be79b457960734f76f82108e7b0.svg?invert_in_darkmode&sanitize=true" align=middle width=237.26658945pt height=24.65753399999998pt/> (Pade R[2/2] approximation)
+<img src="/tex/39c64d4a29b5ffc3f4c682b360fb9bc6.svg?invert_in_darkmode&sanitize=true" align=middle width=199.82352719999997pt height=24.65753399999998pt/> (Pade R[2/2] approximation)
 
 It can be seen that as x moves away from 0, the Pade approximant is more accurate than the corresponding Taylor series.

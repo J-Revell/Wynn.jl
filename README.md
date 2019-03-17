@@ -24,7 +24,7 @@ Epsilon table values with an even <img src="/tex/36b5afebdba34564d884d347484ac0c
 
 
 # Example usage: computing the epsilon table for exp(x)
-The first 5 terms of the Taylor series expansion for <img src="/tex/559b96359a4653a6c35dbf27c11f68d2.svg?invert_in_darkmode&sanitize=true" align=middle width=47.29464134999999pt height=24.65753399999998pt/> are <img src="/tex/41e09bf50da4c9ca2b1058d7e114f8ce.svg?invert_in_darkmode&sanitize=true" align=middle width=259.77142785pt height=26.76175259999998pt/>. The epsilon table can be generated in the manner below:
+The first 5 terms of the Taylor series expansion for <img src="/tex/559b96359a4653a6c35dbf27c11f68d2.svg?invert_in_darkmode&sanitize=true" align=middle width=47.29464134999999pt height=24.65753399999998pt/> are <img src="/tex/92005f24ef508aa30b5e01a346f9154d.svg?invert_in_darkmode&sanitize=true" align=middle width=238.76678429999996pt height=26.76175259999998pt/>. The epsilon table can be generated in the manner below:
 
 ```julia
 using SymPy
@@ -47,12 +47,12 @@ which yields
 
 <img src="/tex/ed18bf83d30c6c5a437c246a3a87a143.svg?invert_in_darkmode&sanitize=true" align=middle width=183.47364255pt height=49.00309590000003pt/>
 
-Comparing accuracy:
+Comparing accuracy, for <img src="/tex/08860a680b937b36c1e93e76e02a12a5.svg?invert_in_darkmode&sanitize=true" align=middle width=93.41330789999998pt height=21.18721440000001pt/>:
 
 <img src="/tex/d2fbc056b13622350cd02c9958eac4e3.svg?invert_in_darkmode&sanitize=true" align=middle width=266.4162303pt height=24.65753399999998pt/> (Native Julia function)
 
-<img src="/tex/66bb64ee3ff869914cef0896cc993d3d.svg?invert_in_darkmode&sanitize=true" align=middle width=181.80402239999998pt height=24.65753399999998pt/> (First 5 terms of Taylor series)
+<img src="/tex/ffbe5255c402d4032989ea578e77b551.svg?invert_in_darkmode&sanitize=true" align=middle width=235.68550169999997pt height=24.65753399999998pt/> (First 5 terms of Taylor series)
 
-<img src="/tex/d48b838db5a410155b0c788e01c2e6ea.svg?invert_in_darkmode&sanitize=true" align=middle width=162.38046659999998pt height=22.465723500000017pt/> (Pade R[2/2] approximation)
+<img src="/tex/23126be79b457960734f76f82108e7b0.svg?invert_in_darkmode&sanitize=true" align=middle width=237.26658945pt height=24.65753399999998pt/> (Pade R[2/2] approximation)
 
 It can be seen that as x moves away from 0, the Pade approximant is more accurate than the corresponding Taylor series.

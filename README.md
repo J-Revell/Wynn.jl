@@ -21,3 +21,38 @@ where
 The resulting table of <img src="/tex/e0bccba5f61931c93bf2b42a9648d584.svg?invert_in_darkmode&sanitize=true" align=middle width=41.936949449999986pt height=24.65753399999998pt/> values is known as the epsilon table.
 
 Epsilon table values with an even <img src="/tex/36b5afebdba34564d884d347484ac0c7.svg?invert_in_darkmode&sanitize=true" align=middle width=7.710416999999989pt height=21.68300969999999pt/>-th index, i.e. <img src="/tex/89db79db8572b902d7f043db0510df7b.svg?invert_in_darkmode&sanitize=true" align=middle width=48.48949214999999pt height=24.65753399999998pt/>, are commonly used to compute rational sequence transformations and extrapolations, such as Shank's Transforms, and Pade Approximants.
+
+
+# Example usage: computing the epsilon table for exp(x)
+The first 5 terms of the Taylor series expansion for <img src="/tex/559b96359a4653a6c35dbf27c11f68d2.svg?invert_in_darkmode&sanitize=true" align=middle width=47.29464134999999pt height=24.65753399999998pt/> are <img src="/tex/41e09bf50da4c9ca2b1058d7e114f8ce.svg?invert_in_darkmode&sanitize=true" align=middle width=259.77142785pt height=26.76175259999998pt/>. The epsilon table can be generated in the manner below:
+
+```julia
+using SymPy
+using Wynn
+# or, if not registered with package repository
+# using .Wynn
+
+@syms x
+# first 5 terms of the Taylor series expansion of exp(x)
+s = [1, x, x^2/2, x^3/6, x^4/24]
+
+etable = EpsilonTable(s).etable
+```
+## Further usage: computing the R[2/2] Pade Approximant of exp(x)
+Suppose we wanted to approximate <img src="/tex/a0778bdbc13bc2aad11315b4a51d2516.svg?invert_in_darkmode&sanitize=true" align=middle width=47.500114199999985pt height=24.65753399999998pt/> (around <img src="/tex/8436d02a042a1eec745015a5801fc1a0.svg?invert_in_darkmode&sanitize=true" align=middle width=39.53182859999999pt height=21.18721440000001pt/>) using a rational Pade Approximant <img src="/tex/8a9e0cd4c218dbb2d9e4be213d6f108e.svg?invert_in_darkmode&sanitize=true" align=middle width=49.62157199999999pt height=24.65753399999998pt/>. The pade approximant <img src="/tex/8a9e0cd4c218dbb2d9e4be213d6f108e.svg?invert_in_darkmode&sanitize=true" align=middle width=49.62157199999999pt height=24.65753399999998pt/> is known to correspond to the epsilon table value <img src="/tex/0bd4baf96622bc8dbc8d32d4a6932886.svg?invert_in_darkmode&sanitize=true" align=middle width=106.49968725pt height=24.65753399999998pt/>. Computing the R[2/2] Pade approximant is thus equivalent to
+```julia
+R = etable[0,4]
+```
+which yields
+
+<img src="/tex/ed18bf83d30c6c5a437c246a3a87a143.svg?invert_in_darkmode&sanitize=true" align=middle width=183.47364255pt height=49.00309590000003pt/>
+
+Comparing accuracy:
+
+<img src="/tex/d2fbc056b13622350cd02c9958eac4e3.svg?invert_in_darkmode&sanitize=true" align=middle width=266.4162303pt height=24.65753399999998pt/> (Native Julia function)
+
+<img src="/tex/66bb64ee3ff869914cef0896cc993d3d.svg?invert_in_darkmode&sanitize=true" align=middle width=181.80402239999998pt height=24.65753399999998pt/> (First 5 terms of Taylor series)
+
+<img src="/tex/d48b838db5a410155b0c788e01c2e6ea.svg?invert_in_darkmode&sanitize=true" align=middle width=162.38046659999998pt height=22.465723500000017pt/> (Pade R[2/2] approximation)
+
+It can be seen that as x moves away from 0, the Pade approximant is more accurate than the corresponding Taylor series.

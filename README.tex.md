@@ -24,7 +24,7 @@ Epsilon table values with an even $j$-th index, i.e. $\epsilon_i(S_{2j})$, are c
 
 
 # Example usage: computing the epsilon table for exp(x)
-The first 5 terms of the Taylor series expansion for $\exp(x)$ are $S(5) = 1 + x + x^2/2 + x^3/6 + x^4/24$. The epsilon table can be generated in the manner below:
+The first 5 terms of the Taylor series expansion for $\exp(x)$ are $S = 1 + x + x^2/2 + x^3/6 + x^4/24$. The epsilon table can be generated in the manner below:
 
 ```julia
 using SymPy
@@ -47,12 +47,12 @@ which yields
 
 $\displaystyle R[2/2](x) = \frac{x^2 + 6x + 12}{x^2 -6x + 12}$
 
-Comparing accuracy:
+Comparing accuracy, for $x = 0.314159$:
 
 $exp(0.314159) = 1.3691074073198546$ (Native Julia function)
 
-$S(5) = 1.36908050816696$ (First 5 terms of Taylor series)
+$S(0.314159) = 1.36908050816696$ (First 5 terms of Taylor series)
 
-$R = 1.36910155409210$ (Pade R[2/2] approximation)
+$R(0.314159) = 1.36910155409210$ (Pade R[2/2] approximation)
 
 It can be seen that as x moves away from 0, the Pade approximant is more accurate than the corresponding Taylor series.

@@ -2,7 +2,7 @@
 A package to facilitate the calculation of epsilon ($\epsilon$) table structures, derived from Wynn's recursive epsilon algorithm.
 
 Suppose we are presented with a series, $S$, with partial sums $S_i$,
-<a href="https://www.codecogs.com/eqnedit.php?latex=$\displaystyle&space;S_i&space;=&space;\sum_{n=0}^i&space;a_n$" target="_blank"><img src="https://latex.codecogs.com/gif.latex?$\displaystyle&space;S_i&space;=&space;\sum_{n=0}^i&space;a_n$" title="$\displaystyle S_i = \sum_{n=0}^i a_n$" /></a>.
+![equation](https://latex.codecogs.com/gif.latex?$\displaystyle&space;S_i&space;=&space;\sum_{n=0}^i&space;a_n$).
 
 Wynn's epsilon algorithm computes the following recursive scheme:
 $\displaystyle \epsilon_{j+1}(S_i) = \epsilon_{j-1}(S_{i+1}) + \frac{1}{\epsilon_j(S_{i+1}) - \epsilon_j(S_{i})}$,

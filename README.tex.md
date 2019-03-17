@@ -21,3 +21,38 @@ $\epsilon_{-j-1}(S_{2j}) = 0$, for $j=0,1,2,\ldots$
 The resulting table of $\epsilon_i(S_{j})$ values is known as the epsilon table.
 
 Epsilon table values with an even $j$-th index, i.e. $\epsilon_i(S_{2j})$, are commonly used to compute rational sequence transformations and extrapolations, such as Shank's Transforms, and Pade Approximants.
+
+
+# Example usage: computing the epsilon table for exp(x)
+The first 5 terms of the Taylor series expansion for $\exp(x)$ are $S(5) = 1 + x + x^2/2 + x^3/6 + x^4/24$. The epsilon table can be generated in the manner below:
+
+```julia
+using SymPy
+using Wynn
+# or, if not registered with package repository
+# using .Wynn
+
+@syms x
+# first 5 terms of the Taylor series expansion of exp(x)
+s = [1, x, x^2/2, x^3/6, x^4/24]
+
+etable = EpsilonTable(s).etable
+```
+## Further usage: computing the R[2/2] Pade Approximant of exp(x)
+Suppose we wanted to approximate $exp(x)$ (around $x=0$) using a rational Pade Approximant $R[l/m]$. The pade approximant $R[l/m]$ is known to correspond to the epsilon table value $\epsilon_{i=l-m}(S_{j=2m})$. Computing the R[2/2] Pade approximant is thus equivalent to
+```julia
+R = etable[0,4]
+```
+which yields
+
+$\displaystyle R[2/2](x) = \frac{x^2 + 6x + 12}{x^2 -6x + 12}$
+
+Comparing accuracy:
+
+$exp(0.314159) = 1.3691074073198546$ (Native Julia function)
+
+$S(5) = 1.36908050816696$ (First 5 terms of Taylor series)
+
+$R = 1.36910155409210$ (Pade R[2/2] approximation)
+
+It can be seen that as x moves away from 0, the Pade approximant is more accurate than the corresponding Taylor series.

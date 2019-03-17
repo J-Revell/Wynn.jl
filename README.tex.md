@@ -39,7 +39,7 @@ s = [1, x, x^2/2, x^3/6, x^4/24]
 etable = EpsilonTable(s).etable
 ```
 ## Further usage: computing the R[2/2] Pade Approximant of exp(x)
-Suppose we wanted to approximate $exp(x)$ (around $x=0$) using a rational Pade Approximant $R[l/m]$. The pade approximant $R[l/m]$ is known to correspond to the epsilon table value $\epsilon_{i=l-m}(S_{j=2m})$. Computing the R[2/2] Pade approximant is thus equivalent to
+Suppose we wanted to approximate $\exp(x)$ (around $x=0$) using a rational Pade Approximant $R[l/m]$. The pade approximant $R[l/m]$ is known to correspond to the epsilon table value $\epsilon_{i=l-m}(S_{j=2m})$. Computing the R[2/2] Pade approximant is thus equivalent to $R=\epsilon_{0}(S_{4})$,
 ```julia
 R = etable[0,4]
 ```

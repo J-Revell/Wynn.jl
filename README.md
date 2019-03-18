@@ -1,5 +1,6 @@
 # Wynn.jl
 [![Travis](https://travis-ci.com/J-Revell/Wynn.jl.svg?branch=master)](https://travis-ci.com/J-Revell/Wynn.jl)
+[![Appveyor](https://ci.appveyor.com/api/projects/status/github/J-Revell/Wynn.jl?svg=true)](https://ci.appveyor.com/project/J-Revell/wynn-jl)
 
 A package to facilitate the calculation of epsilon (<img src="/tex/7ccca27b5ccc533a2dd72dc6fa28ed84.svg?invert_in_darkmode&sanitize=true" align=middle width=6.672392099999992pt height=14.15524440000002pt/>) table structures, derived from Wynn's recursive epsilon algorithm.
 
@@ -9,20 +10,22 @@ Suppose we are presented with a series, <img src="/tex/e257acd1ccbe7fcb654708f1a
 
 
 Wynn's epsilon algorithm computes the following recursive scheme:
-<img src="/tex/b4e0ec3b26fc563e0ed93910d7e0c216.svg?invert_in_darkmode&sanitize=true" align=middle width=298.57868204999994pt height=43.42856099999997pt/>,
+<img src="/tex/018b65cf47992d70b1aef415dc34aa03.svg?invert_in_darkmode&sanitize=true" align=middle width=194.86075784999997pt height=44.36012790000002pt/>,
 
 where
 
-<img src="/tex/207a4d937a3c920d74c18cb14811970c.svg?invert_in_darkmode&sanitize=true" align=middle width=79.03346054999999pt height=24.65753399999998pt/>, for <img src="/tex/cb64b662810fa2e879c6c890c2c20026.svg?invert_in_darkmode&sanitize=true" align=middle width=93.33412439999998pt height=21.68300969999999pt/>
+<img src="/tex/a6d06ffa0c20fa59096509295f59021c.svg?invert_in_darkmode&sanitize=true" align=middle width=59.06766524999999pt height=34.337843099999986pt/>, for <img src="/tex/cb64b662810fa2e879c6c890c2c20026.svg?invert_in_darkmode&sanitize=true" align=middle width=93.33412439999998pt height=21.68300969999999pt/>
 
-<img src="/tex/efb514c886a1edd953f62e3c64752b1d.svg?invert_in_darkmode&sanitize=true" align=middle width=82.79584334999998pt height=24.65753399999998pt/>, for <img src="/tex/cb64b662810fa2e879c6c890c2c20026.svg?invert_in_darkmode&sanitize=true" align=middle width=93.33412439999998pt height=21.68300969999999pt/>
+<img src="/tex/aed0ba5a615bf67526eca4fc5bb41642.svg?invert_in_darkmode&sanitize=true" align=middle width=54.45768899999999pt height=34.337843099999986pt/>, for <img src="/tex/cb64b662810fa2e879c6c890c2c20026.svg?invert_in_darkmode&sanitize=true" align=middle width=93.33412439999998pt height=21.68300969999999pt/>
 
-<img src="/tex/0f1e19b8023600ed9036bd1af5957893.svg?invert_in_darkmode&sanitize=true" align=middle width=107.1804756pt height=24.65753399999998pt/>, for <img src="/tex/bfd898f3193f13c76d64173d28ac7a86.svg?invert_in_darkmode&sanitize=true" align=middle width=95.38131569999997pt height=21.68300969999999pt/>
+<img src="/tex/dfa1956691e72694d10703fb035b88f5.svg?invert_in_darkmode&sanitize=true" align=middle width=81.11019509999998pt height=34.337843099999986pt/>, for <img src="/tex/bfd898f3193f13c76d64173d28ac7a86.svg?invert_in_darkmode&sanitize=true" align=middle width=95.38131569999997pt height=21.68300969999999pt/>
 
 
-The resulting table of <img src="/tex/e0bccba5f61931c93bf2b42a9648d584.svg?invert_in_darkmode&sanitize=true" align=middle width=41.936949449999986pt height=24.65753399999998pt/> values is known as the epsilon table.
+The resulting table of <img src="/tex/f601aeaf6c36f343239c6ab5e365c738.svg?invert_in_darkmode&sanitize=true" align=middle width=21.59732354999999pt height=34.337843099999986pt/> values is known as the epsilon table.
 
-Epsilon table values with an even <img src="/tex/36b5afebdba34564d884d347484ac0c7.svg?invert_in_darkmode&sanitize=true" align=middle width=7.710416999999989pt height=21.68300969999999pt/>-th index, i.e. <img src="/tex/89db79db8572b902d7f043db0510df7b.svg?invert_in_darkmode&sanitize=true" align=middle width=48.48949214999999pt height=24.65753399999998pt/>, are commonly used to compute rational sequence transformations and extrapolations, such as Shank's Transforms, and Pade Approximants.
+<p align="center"><img src="/tex/6cf2c910e91ab031410942a0ddf527aa.svg?invert_in_darkmode&sanitize=true" align=middle width=168.6075039pt height=229.9926321pt/></p>
+
+Epsilon table values with an even <img src="/tex/36b5afebdba34564d884d347484ac0c7.svg?invert_in_darkmode&sanitize=true" align=middle width=7.710416999999989pt height=21.68300969999999pt/>-th index, i.e. <img src="/tex/6c0fb9bd50b8ed35149982975f93c8cd.svg?invert_in_darkmode&sanitize=true" align=middle width=21.59732354999999pt height=34.337843099999986pt/>, are commonly used to compute rational sequence transformations and extrapolations, such as Shank's Transforms, and Pade Approximants.
 
 
 # Example usage: computing the epsilon table for exp(x)
@@ -40,8 +43,14 @@ s = [1, x, x^2/2, x^3/6, x^4/24]
 
 etable = EpsilonTable(s).etable
 ```
+Retrieving the epsilon table value corresponding to <img src="/tex/c82f30aacb45500b6ea0e16c83087184.svg?invert_in_darkmode&sanitize=true" align=middle width=21.59732354999999pt height=34.337843099999986pt/> is done by
+
+```julia
+etable[i, j]
+```
+
 ## Further usage: computing the R[2/2] Pade Approximant of exp(x)
-Suppose we wanted to approximate <img src="/tex/559b96359a4653a6c35dbf27c11f68d2.svg?invert_in_darkmode&sanitize=true" align=middle width=47.29464134999999pt height=24.65753399999998pt/> (around <img src="/tex/8436d02a042a1eec745015a5801fc1a0.svg?invert_in_darkmode&sanitize=true" align=middle width=39.53182859999999pt height=21.18721440000001pt/>) using a rational Pade Approximant <img src="/tex/8a9e0cd4c218dbb2d9e4be213d6f108e.svg?invert_in_darkmode&sanitize=true" align=middle width=49.62157199999999pt height=24.65753399999998pt/>. The pade approximant <img src="/tex/8a9e0cd4c218dbb2d9e4be213d6f108e.svg?invert_in_darkmode&sanitize=true" align=middle width=49.62157199999999pt height=24.65753399999998pt/> is known to correspond to the epsilon table value <img src="/tex/0bd4baf96622bc8dbc8d32d4a6932886.svg?invert_in_darkmode&sanitize=true" align=middle width=106.49968725pt height=24.65753399999998pt/>. Computing the R[2/2] Pade approximant is thus equivalent to <img src="/tex/ca6c65c65040b57a15442cb58208d37b.svg?invert_in_darkmode&sanitize=true" align=middle width=78.81276974999999pt height=24.65753399999998pt/>,
+Suppose we wanted to approximate <img src="/tex/559b96359a4653a6c35dbf27c11f68d2.svg?invert_in_darkmode&sanitize=true" align=middle width=47.29464134999999pt height=24.65753399999998pt/> (around <img src="/tex/8436d02a042a1eec745015a5801fc1a0.svg?invert_in_darkmode&sanitize=true" align=middle width=39.53182859999999pt height=21.18721440000001pt/>) using a rational Pade Approximant <img src="/tex/8a9e0cd4c218dbb2d9e4be213d6f108e.svg?invert_in_darkmode&sanitize=true" align=middle width=49.62157199999999pt height=24.65753399999998pt/>. The pade approximant <img src="/tex/8a9e0cd4c218dbb2d9e4be213d6f108e.svg?invert_in_darkmode&sanitize=true" align=middle width=49.62157199999999pt height=24.65753399999998pt/> is known to correspond to the epsilon table value <img src="/tex/d7090fe83aa1e5aafcbd7cdaf76a596f.svg?invert_in_darkmode&sanitize=true" align=middle width=43.10908139999999pt height=34.337843099999986pt/>. Computing the R[2/2] Pade approximant is thus equivalent to <img src="/tex/6787b996d6585bee77089242315b429a.svg?invert_in_darkmode&sanitize=true" align=middle width=58.02507149999999pt height=34.337843099999986pt/>,
 ```julia
 R = etable[0,4]
 ```

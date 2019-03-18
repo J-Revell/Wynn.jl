@@ -1,8 +1,11 @@
 environment:
   matrix:
   - julia_version: 0.7
+    PYTHON: "Conda"
   - julia_version: 1
+    PYTHON: "Conda"
   - julia_version: nightly
+    PYTHON: "Conda"
 
 platform:
   - x86 # 32-bit

@@ -1,4 +1,6 @@
 # Wynn.jl
+[![Travis](https://travis-ci.com/J-Revell/Wynn.jl.svg?branch=master)](https://travis-ci.com/J-Revell/Wynn.jl)
+
 A package to facilitate the calculation of epsilon ($\epsilon$) table structures, derived from Wynn's recursive epsilon algorithm.
 
 Suppose we are presented with a series, $S$, with partial sums $S_i$,

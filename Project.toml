@@ -1,7 +1,7 @@
 name = "Wynn"
-uuid = "e65282cc-48b7-11e9-27c4-e9382a53a5dc"
+uuid = "fbb19de7-1342-5f93-8193-71ff412e753d"
 authors = ["Jeremy Revell"]
-version = "0.1.0"
+version = "0.0.1"
 
 [deps]
 SymPy = "24249f21-da20-56a4-8eb1-6a02cf4ae2e6"

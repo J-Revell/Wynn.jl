@@ -20,7 +20,7 @@ module Wynn
         # setting base case i = -j-1, j even
         merge!(etable, Dict((-j-1, 2j) => Sym(0) for j in 0:max_ind/2))
 
-        # recursive calculations, j>=1, i = 0:max_ind-j
+        # recursive calculations, j>=1, i = -floor(Int,(j+1)/2):max_ind-j
         for j in 1:max_ind, i in -floor(Int,(j+1)/2):max_ind-j
             ϵ_ij = etable[i+1, j-2] + 1 / (etable[i+1, j-1] - etable[i, j-1])
             simplified ? push!(etable, (i, j) => simplify(ϵ_ij)) : push!(etable, (i, j) => ϵ_ij)

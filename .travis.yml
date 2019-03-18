@@ -13,5 +13,14 @@ matrix:
     - julia: nightly
 notifications:
   email: false
+
+script:
+  - julia -e 'using Pkg;
+              Pkg.activate(".");
+              Pkg.add("Conda");
+              using Conda;
+              Conda.add("sympy");
+              ENV["PYTHON"] = "";
+              Pkg.build("PyCall");'
 after_success:
    - julia -e 'cd(Pkg.dir("Wynn")); Pkg.add("Coverage"); using Coverage; Coveralls.submit(Coveralls.process_folder())';

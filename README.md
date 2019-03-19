@@ -2,11 +2,11 @@
 [![Travis](https://travis-ci.com/J-Revell/Wynn.jl.svg?branch=master)](https://travis-ci.com/J-Revell/Wynn.jl)
 [![Appveyor](https://ci.appveyor.com/api/projects/status/github/J-Revell/Wynn.jl?svg=true)](https://ci.appveyor.com/project/J-Revell/wynn-jl)
 
-A package to facilitate the calculation of epsilon (<img src="/tex/7ccca27b5ccc533a2dd72dc6fa28ed84.svg?invert_in_darkmode&sanitize=true" align=middle width=6.672392099999992pt height=14.15524440000002pt/>) table structures, derived from Wynn's recursive epsilon algorithm.
+A package to facilitate the calculation of epsilon (<img src="/tex/7ccca27b5ccc533a2dd72dc6fa28ed84.svg?invert_in_darkmode&sanitize=true" align=middle width=6.672392099999992pt height=14.15524440000002pt/>) table structures, derived from Wynn's recursive epsilon algorithm. The components of the epsilon table are commonly used within the calculation of sequence transformations. 
 
-Suppose we are presented with a series, <img src="/tex/e257acd1ccbe7fcb654708f1a866bfe9.svg?invert_in_darkmode&sanitize=true" align=middle width=11.027402099999989pt height=22.465723500000017pt/>, with partial sums <img src="/tex/d28140eda2d12e24b434e011b930fa23.svg?invert_in_darkmode&sanitize=true" align=middle width=14.730823799999989pt height=22.465723500000017pt/>,
+Suppose we are presented with a series, <img src="/tex/e257acd1ccbe7fcb654708f1a866bfe9.svg?invert_in_darkmode&sanitize=true" align=middle width=11.027402099999989pt height=22.465723500000017pt/>, with component terms <img src="/tex/4fa3ac8fe93c68be3fe7ab53bdeb2efa.svg?invert_in_darkmode&sanitize=true" align=middle width=12.35637809999999pt height=14.15524440000002pt/>,
 
-<img src="/tex/305b00052b0f637b1f6b9cbbc20b6bd4.svg?invert_in_darkmode&sanitize=true" align=middle width=81.79511999999998pt height=56.32434059999998pt/>.
+<img src="/tex/a127645bb77430d39cfc9aa637fa9760.svg?invert_in_darkmode&sanitize=true" align=middle width=71.78539004999999pt height=51.0047109pt/>.
 
 
 Wynn's epsilon algorithm computes the following recursive scheme:
@@ -14,7 +14,7 @@ Wynn's epsilon algorithm computes the following recursive scheme:
 
 where
 
-<img src="/tex/a6d06ffa0c20fa59096509295f59021c.svg?invert_in_darkmode&sanitize=true" align=middle width=59.06766524999999pt height=34.337843099999986pt/>, for <img src="/tex/cb64b662810fa2e879c6c890c2c20026.svg?invert_in_darkmode&sanitize=true" align=middle width=93.33412439999998pt height=21.68300969999999pt/>
+<img src="/tex/a9f61cac63189a76b443ad06a36003ad.svg?invert_in_darkmode&sanitize=true" align=middle width=56.69321954999999pt height=34.337843099999986pt/>, for <img src="/tex/cb64b662810fa2e879c6c890c2c20026.svg?invert_in_darkmode&sanitize=true" align=middle width=93.33412439999998pt height=21.68300969999999pt/>
 
 <img src="/tex/aed0ba5a615bf67526eca4fc5bb41642.svg?invert_in_darkmode&sanitize=true" align=middle width=54.45768899999999pt height=34.337843099999986pt/>, for <img src="/tex/cb64b662810fa2e879c6c890c2c20026.svg?invert_in_darkmode&sanitize=true" align=middle width=93.33412439999998pt height=21.68300969999999pt/>
 
@@ -23,7 +23,7 @@ where
 
 The resulting table of <img src="/tex/f601aeaf6c36f343239c6ab5e365c738.svg?invert_in_darkmode&sanitize=true" align=middle width=21.59732354999999pt height=34.337843099999986pt/> values is known as the epsilon table.
 
-<p align="center"><img src="/tex/6cf2c910e91ab031410942a0ddf527aa.svg?invert_in_darkmode&sanitize=true" align=middle width=168.6075039pt height=229.9926321pt/></p>
+<p align="center"><img src="/tex/1f0b6a565b7e16e935c345579a6e4a59.svg?invert_in_darkmode&sanitize=true" align=middle width=166.233078pt height=229.9926321pt/></p>
 
 Epsilon table values with an even <img src="/tex/36b5afebdba34564d884d347484ac0c7.svg?invert_in_darkmode&sanitize=true" align=middle width=7.710416999999989pt height=21.68300969999999pt/>-th index, i.e. <img src="/tex/6c0fb9bd50b8ed35149982975f93c8cd.svg?invert_in_darkmode&sanitize=true" align=middle width=21.59732354999999pt height=34.337843099999986pt/>, are commonly used to compute rational sequence transformations and extrapolations, such as Shank's Transforms, and Pade Approximants.
 

@@ -2,11 +2,11 @@
 [![Travis](https://travis-ci.com/J-Revell/Wynn.jl.svg?branch=master)](https://travis-ci.com/J-Revell/Wynn.jl)
 [![Appveyor](https://ci.appveyor.com/api/projects/status/github/J-Revell/Wynn.jl?svg=true)](https://ci.appveyor.com/project/J-Revell/wynn-jl)
 
-A package to facilitate the calculation of epsilon ($\epsilon$) table structures, derived from Wynn's recursive epsilon algorithm.
+A package to facilitate the calculation of epsilon ($\epsilon$) table structures, derived from Wynn's recursive epsilon algorithm. The components of the epsilon table are commonly used within the calculation of sequence transformations. 
 
-Suppose we are presented with a series, $S$, with partial sums $S_i$,
+Suppose we are presented with a series, $S$, with component terms $s_i$,
 
-$\displaystyle S_i = \sum_{n=0}^i a_n$.
+$\displaystyle S = \sum_{i=0}^n s_i$.
 
 
 Wynn's epsilon algorithm computes the following recursive scheme:
@@ -14,7 +14,7 @@ $\displaystyle \epsilon_{j+1}^{(i)} = \epsilon_{j-1}^{(i+1)} + \frac{1}{\epsilon
 
 where
 
-$\epsilon_{0}^{(i)} = S_i$, for $i=0,1,2,\ldots$
+$\epsilon_{0}^{(i)} = s_i$, for $i=0,1,2,\ldots$
 
 $\epsilon_{-1}^{(i)} = 0$, for $i=0,1,2,\ldots$
 
@@ -25,13 +25,13 @@ The resulting table of $\epsilon_j^{(i)}$ values is known as the epsilon table.
 
 \begin{array}{ccccc}
  & & \cdot^{\cdot^{\cdot}} & & \cdot^{\cdot^{\cdot}}\\
-  & S_0 &  & \epsilon_{2}^{(-1)} & \\
+  & s_0 &  & \epsilon_{2}^{(-1)} & \\
  0 &  & \epsilon_{1}^{(0)} &  & \ddots \\
- & S_1 &  & \epsilon_{2}^{(0)} &  \\
+ & s_1 &  & \epsilon_{2}^{(0)} &  \\
  0 & &  \epsilon_{1}^{(1)} &  & \ddots \\
-  & S_2 &   & \epsilon_{2}^{(1)} &  \\
+  & s_2 &   & \epsilon_{2}^{(1)} &  \\
  0 & &  \epsilon_{1}^{(2)} &  & \ddots \\
- & S_3 &  & \epsilon_{2}^{(2)}  &  \\
+ & s_3 &  & \epsilon_{2}^{(2)}  &  \\
  \vdots &  & \vdots &  &  \ddots\\
 \end{array}
 

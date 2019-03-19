@@ -21,6 +21,8 @@ module Wynn
 
         # setting base case i = -j-1, j even
         merge!(etable, Dict((-j-1, 2j) => eltype(terms)(0) for j in 0:max_ind))
+
+        # setting base case for odd j
         merge!(etable, Dict((-j-1, 2j-1) => eltype(terms)(0) for j in 0:max_ind))
 
         # recursive calculations, j>=1, i = floor(Int,-j/2):(max_ind-j-1)

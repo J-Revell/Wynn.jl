@@ -9,8 +9,8 @@ module Wynn
         etable::Dict{Tuple{Int,Int},T}
     end
 
-    function EpsilonTable(terms::Vector{T}; simplified::Bool = true) where T<:Union{Real,Sym}
-        # maximum occuring i & j index, minus 1 for nonzero julia indexing
+    function EpsilonTable(terms::Vector{T}; simplified::Bool = true) where T<:Union{Float64,Sym}
+        # maximum occuring i & j index
         max_ind = length(terms)
 
         # setting base case j = -1
@@ -34,6 +34,8 @@ module Wynn
         series = sum(terms)
         EpsilonTable(series, terms, etable)
     end
+
+    EpsilonTable(terms::Vector{Int}; simplified::Bool = true) = EpsilonTable(convert(Vector{Float64}, terms); simplified = simplified)
 
     export EpsilonTable
 end

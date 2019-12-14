@@ -48,7 +48,11 @@ Retrieving the epsilon table value corresponding to <img src="/tex/c82f30aacb455
 ```julia
 etable[i, j]
 ```
+Alternatively, the same term can be calculated without generating the entire epsilon table using the `epsilon` function which is much more efficient.
 
+```julia
+epsilon(s, (i, j))
+```
 ## Further usage: computing the R[2/2] Pade Approximant of exp(x)
 Suppose we wanted to approximate <img src="/tex/559b96359a4653a6c35dbf27c11f68d2.svg?invert_in_darkmode&sanitize=true" align=middle width=47.29464134999999pt height=24.65753399999998pt/> (around <img src="/tex/8436d02a042a1eec745015a5801fc1a0.svg?invert_in_darkmode&sanitize=true" align=middle width=39.53182859999999pt height=21.18721440000001pt/>) using a rational Pade Approximant <img src="/tex/8a9e0cd4c218dbb2d9e4be213d6f108e.svg?invert_in_darkmode&sanitize=true" align=middle width=49.62157199999999pt height=24.65753399999998pt/>. The pade approximant <img src="/tex/8a9e0cd4c218dbb2d9e4be213d6f108e.svg?invert_in_darkmode&sanitize=true" align=middle width=49.62157199999999pt height=24.65753399999998pt/> is known to correspond to the epsilon table value <img src="/tex/d7090fe83aa1e5aafcbd7cdaf76a596f.svg?invert_in_darkmode&sanitize=true" align=middle width=43.10908139999999pt height=34.337843099999986pt/>. Computing the R[2/2] Pade approximant is thus equivalent to <img src="/tex/6787b996d6585bee77089242315b429a.svg?invert_in_darkmode&sanitize=true" align=middle width=58.02507149999999pt height=34.337843099999986pt/>,
 ```julia

@@ -37,5 +37,27 @@ module Wynn
 
     EpsilonTable(terms::Vector{Int}; simplified::Bool = true) = EpsilonTable(convert(Vector{Float64}, terms); simplified = simplified)
 
-    export EpsilonTable
+
+    # recursive function to generate just one term of the epsilon table, much more efficient.
+    function epsilon(terms::Vector{T}, order::Tuple{Int,Int}; simplified::Bool = true) where T<:Union{Real,Sym}
+        max_ind = length(terms)
+        if order[2] == -1
+            return 0
+        elseif (0 <= order[1] < max_ind) && (order[2] == 0)
+            return sum(terms[1:order[1]+1])
+        elseif iseven(order[2]) && (order[1] == -order[2]/2-1)
+            return 0
+        elseif isodd(order[2]) && (order[1] == -(order[2]+1)/2-1)
+            return 0
+        end
+        max_ind = length(terms)
+        ϵ_order = epsilon(terms, (order[1]+1, order[2]-2)) + 1 / (epsilon(terms, (order[1]+1, order[2]-1)) - epsilon(terms, (order[1], order[2]-1)))
+        if (eltype(terms) <: Sym) && simplified
+            return simplify(ϵ_order)
+        else
+            return ϵ_order
+        end
+    end
+
+    export EpsilonTable, epsilon
 end
